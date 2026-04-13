@@ -1,0 +1,57 @@
+[
+  {
+    "id": "S001",
+    "query_keywords": ["설화수", "자음생", "크림"],
+    "product_id": "P001",
+    "name": "설화수 자음생 크림",
+    "price": 120000,
+    "currency": "KRW",
+    "availability": "온라인/오프라인 구매 가능",
+    "store_locations": ["아모레퍼시픽 본사 매장", "백화점 전 매장", "온라인 공식몰"],
+    "promotions": ["5월 VIP 20% 할인", "2개 구매 시 미니어처 증정"]
+  },
+  {
+    "id": "S002",
+    "query_keywords": ["라네즈", "워터뱅크", "하이드로"],
+    "product_id": "P002",
+    "name": "라네즈 워터뱅크 하이드로 크림",
+    "price": 42000,
+    "currency": "KRW",
+    "availability": "온라인 구매 가능",
+    "store_locations": ["라네즈 공식몰", "올리브영", "쿠팡"],
+    "promotions": ["신규 가입 시 10% 할인"]
+  },
+  {
+    "id": "S003",
+    "query_keywords": ["이니스프리", "그린티", "세럼"],
+    "product_id": "P003",
+    "name": "이니스프리 그린티 씨드 세럼",
+    "price": 29000,
+    "currency": "KRW",
+    "availability": "온라인/오프라인 구매 가능",
+    "store_locations": ["이니스프리 로드샵", "올리브영", "공식몰"],
+    "promotions": ["1+1 이벤트 진행 중"]
+  },
+  {
+    "id": "S004",
+    "query_keywords": ["헤라", "블랙", "쿠션"],
+    "product_id": "P004",
+    "name": "헤라 블랙 쿠션 파운데이션",
+    "price": 55000,
+    "currency": "KRW",
+    "availability": "온라인 구매 가능 (일부 색상 품절)",
+    "store_locations": ["헤라 공식몰", "백화점"],
+    "promotions": []
+  },
+  {
+    "id": "S005",
+    "query_keywords": ["마몽드", "로즈워터", "토너"],
+    "product_id": "P005",
+    "name": "마몽드 로즈워터 토너",
+    "price": 18000,
+    "currency": "KRW",
+    "availability": "일시 품절",
+    "store_locations": ["마몽드 공식몰"],
+    "promotions": ["재입고 알림 신청 가능"]
+  }
+]

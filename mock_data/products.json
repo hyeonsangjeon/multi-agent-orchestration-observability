@@ -1,0 +1,67 @@
+[
+  {
+    "id": "P001",
+    "name": "설화수 자음생 크림",
+    "brand": "설화수",
+    "category": "크림",
+    "skin_type": ["건성", "복합성"],
+    "price": 120000,
+    "currency": "KRW",
+    "description": "인삼 성분이 풍부한 안티에이징 크림. 건조한 피부에 깊은 보습과 영양을 공급합니다.",
+    "key_ingredients": ["인삼", "작약", "연꽃"],
+    "rating": 4.7,
+    "in_stock": true
+  },
+  {
+    "id": "P002",
+    "name": "라네즈 워터뱅크 하이드로 크림",
+    "brand": "라네즈",
+    "category": "크림",
+    "skin_type": ["건성", "민감성"],
+    "price": 42000,
+    "currency": "KRW",
+    "description": "그린 히알루론산이 72시간 보습을 제공하는 수분 크림. 건성 피부의 수분 장벽을 강화합니다.",
+    "key_ingredients": ["히알루론산", "녹차수", "스쿠알란"],
+    "rating": 4.5,
+    "in_stock": true
+  },
+  {
+    "id": "P003",
+    "name": "이니스프리 그린티 씨드 세럼",
+    "brand": "이니스프리",
+    "category": "세럼",
+    "skin_type": ["지성", "복합성"],
+    "price": 29000,
+    "currency": "KRW",
+    "description": "제주 녹차씨 오일과 녹차수를 담은 수분 보충 세럼. 피부 장벽을 강화하고 촉촉하게 가꿔줍니다.",
+    "key_ingredients": ["녹차씨 오일", "녹차수", "나이아신아마이드"],
+    "rating": 4.3,
+    "in_stock": true
+  },
+  {
+    "id": "P004",
+    "name": "헤라 블랙 쿠션 파운데이션",
+    "brand": "헤라",
+    "category": "메이크업",
+    "skin_type": ["모든 피부"],
+    "price": 55000,
+    "currency": "KRW",
+    "description": "커버력과 지속력이 뛰어난 쿠션 파운데이션. 자연스러운 광채 피부를 연출합니다.",
+    "key_ingredients": ["나이아신아마이드", "히알루론산"],
+    "rating": 4.6,
+    "in_stock": true
+  },
+  {
+    "id": "P005",
+    "name": "마몽드 로즈워터 토너",
+    "brand": "마몽드",
+    "category": "토너",
+    "skin_type": ["건성", "민감성"],
+    "price": 18000,
+    "currency": "KRW",
+    "description": "다마스크 장미수 90.89%로 피부를 촉촉하게 정돈해주는 토너입니다.",
+    "key_ingredients": ["다마스크 장미수", "히알루론산"],
+    "rating": 4.4,
+    "in_stock": false
+  }
+]
