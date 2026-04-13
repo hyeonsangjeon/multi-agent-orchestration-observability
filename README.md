@@ -47,6 +47,13 @@ cp .env.example .env  # fill in Azure OpenAI + App Insights credentials
 jupyter notebook routing_observability.ipynb
 ```
 
+```env
+AZURE_OPENAI_ENDPOINT=https://dlstmvprtus-wingnut0310-ai.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+AZURE_OPENAI_API_VERSION=2024-12-01-preview
+AZURE_OPENAI_AUTH_MODE=entra
+```
+
 ## Infrastructure Required
 
 | Component | Purpose |
@@ -56,6 +63,10 @@ jupyter notebook routing_observability.ipynb
 | Python 3.11+ | Runtime |
 
 No vector store, no AKS, no container needed. Runs locally in a notebook.
+
+Authentication:
+- `AZURE_OPENAI_AUTH_MODE=entra` uses `DefaultAzureCredential` and is the default path for FDPO tenant environments.
+- `AZURE_OPENAI_AUTH_MODE=key` uses `AZURE_OPENAI_API_KEY` when key-based auth is available.
 
 ## File Structure
 

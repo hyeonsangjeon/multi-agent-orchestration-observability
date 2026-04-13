@@ -10,6 +10,7 @@ import json
 from dataclasses import dataclass
 
 from semantic_kernel import Kernel
+from semantic_kernel.connectors.ai.open_ai import AzureChatPromptExecutionSettings
 from semantic_kernel.contents import ChatHistory
 
 
@@ -73,6 +74,7 @@ async def reflect(
     chat_service = kernel.get_service(service_id)
     response = await chat_service.get_chat_message_contents(
         chat_history=chat_history,
+        settings=AzureChatPromptExecutionSettings(),
     )
 
     raw = response[0].content.strip()

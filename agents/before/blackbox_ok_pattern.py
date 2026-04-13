@@ -56,7 +56,10 @@ async def run_ok_pattern_supervisor(
     # <<< This is why the customer cannot see which agent was selected or why >>>
     response_parts: list[str] = []
     async for message in supervisor.invoke(history):
-        if message.content:
-            response_parts.append(message.content)
+        # message is AgentResponseItem — .content returns ChatMessageContent object,
+        # so use str() to get the text content
+        text = str(message)
+        if text:
+            response_parts.append(text)
 
     return "\n".join(response_parts)

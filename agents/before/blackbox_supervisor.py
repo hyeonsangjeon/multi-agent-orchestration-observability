@@ -4,6 +4,7 @@ A single LLM completion handles routing + response generation with zero trace.
 """
 
 from semantic_kernel import Kernel
+from semantic_kernel.connectors.ai.open_ai import AzureChatPromptExecutionSettings
 from semantic_kernel.contents import ChatHistory
 
 BLACKBOX_SYSTEM_PROMPT = """\
@@ -34,5 +35,6 @@ async def run_blackbox_supervisor(
     chat_service = kernel.get_service(service_id)
     response = await chat_service.get_chat_message_contents(
         chat_history=chat_history,
+        settings=AzureChatPromptExecutionSettings(),
     )
     return response[0].content

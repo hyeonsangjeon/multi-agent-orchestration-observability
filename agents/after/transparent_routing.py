@@ -189,6 +189,7 @@ def build_transparent_routing_chat(
         function_name="routing_selection",
         prompt=SELECTION_PROMPT,
     )
+    selection_function.prompt_template.allow_dangerously_set_content = True
 
     history_reducer = ChatHistoryTruncationReducer(target_count=1)
 
@@ -197,6 +198,7 @@ def build_transparent_routing_chat(
         function_name="termination",
         prompt=TERMINATION_PROMPT,
     )
+    termination_function.prompt_template.allow_dangerously_set_content = True
 
     chat = AgentGroupChat(
         agents=[recommend_agent, search_agent, policy_agent],
