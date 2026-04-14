@@ -25,6 +25,14 @@ class ReflectionResult:
     reason: str
 
 
+# Business rules for rule-based pre-check (before LLM reflection).
+# Can be externalized to JSON/YAML config later.
+BUSINESS_RULES: dict[str, list[str] | str] = {
+    "price_keywords": ["가격", "얼마", "프로모션", "할인", "세일"],
+    "price_agent": "SearchAgent",
+}
+
+
 REFLECTION_PROMPT_TEMPLATE = """\
 You are a quality evaluator for a beauty e-commerce chatbot.
 
@@ -60,7 +68,25 @@ async def reflect(
     """Explicit self-reflection — NOT tied to any SK framework hook.
 
     This pattern is portable across SK, MAF, and LangGraph.
+
+    Two-phase check:
+    1. Rule-based pre-check (no LLM call, fast)
+    2. LLM-based evaluation (if rules don't trigger)
     """
+    # Phase 1: Rule-based pre-check
+    price_keywords = BUSINESS_RULES.get("price_keywords", [])
+    price_agent = BUSINESS_RULES.get("price_agent", "SearchAgent")
+    for kw in price_keywords:
+        if kw in query and agent_name != price_agent:
+            return ReflectionResult(
+                intent_match=True,
+                sufficient_info=False,
+                should_reroute=True,
+                reroute_to=str(price_agent),
+                reason=f"비즈니스 규칙: '{kw}' 키워드 감지 → {price_agent} 필수",
+            )
+
+    # Phase 2: LLM-based evaluation
     prompt = REFLECTION_PROMPT_TEMPLATE.format(
         query=query,
         agent_name=agent_name,
