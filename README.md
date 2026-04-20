@@ -3,7 +3,7 @@
 **Before/After demo: Transform black-box multi-agent orchestration into transparent, loggable, overridable routing with self-reflection.**
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
-![Semantic Kernel](https://img.shields.io/badge/Semantic%20Kernel-1.41+-purple)
+![Semantic Kernel](https://img.shields.io/badge/Semantic%20Kernel-1.39.2-purple)
 ![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT--4o-green)
 
 ---

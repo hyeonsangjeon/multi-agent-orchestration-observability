@@ -213,7 +213,9 @@ def build_transparent_routing_chat(
             agents=[recommend_agent, search_agent, policy_agent],
             function=termination_function,
             kernel=kernel,
-            result_parser=lambda result: "yes" in str(result.value[0]).lower(),
+            # Strict equality on the trimmed lower-cased result, so substrings
+            # like "yesterday" or "not yes" do not accidentally terminate.
+            result_parser=lambda result: str(result.value[0]).strip().lower() == "yes",
             history_variable_name="lastmessage",
             maximum_iterations=2,
             history_reducer=history_reducer,

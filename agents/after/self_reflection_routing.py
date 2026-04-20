@@ -98,12 +98,16 @@ async def reflect(
     chat_history.add_user_message(prompt)
 
     chat_service = kernel.get_service(service_id)
+    # Ask the model for raw JSON. response_format={"type": "json_object"} is
+    # supported by Azure OpenAI gpt-4o / gpt-4-turbo and dramatically reduces
+    # parse failures here.
+    settings = AzureChatPromptExecutionSettings(response_format={"type": "json_object"})
     response = await chat_service.get_chat_message_contents(
         chat_history=chat_history,
-        settings=AzureChatPromptExecutionSettings(),
+        settings=settings,
     )
 
-    raw = response[0].content.strip()
+    raw = (response[0].content or "").strip() if response else ""
 
     # Strip markdown code fences if present
     if raw.startswith("```"):

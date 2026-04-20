@@ -37,4 +37,7 @@ async def run_blackbox_supervisor(
         chat_history=chat_history,
         settings=AzureChatPromptExecutionSettings(),
     )
-    return response[0].content
+    if not response:
+        return ""
+    content = response[0].content
+    return content if content is not None else ""

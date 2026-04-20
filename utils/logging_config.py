@@ -6,8 +6,15 @@ import sys
 from datetime import datetime, timezone
 
 
+_RESERVED_LOG_FIELDS = {"timestamp", "level", "logger", "message", "exception"}
+
+
 class StructuredJsonFormatter(logging.Formatter):
-    """Formats log records as structured JSON."""
+    """Formats log records as structured JSON.
+
+    - Includes exception traceback when ``exc_info`` is set.
+    - Merges ``record.structured_data`` without overwriting reserved fields.
+    """
 
     def format(self, record: logging.LogRecord) -> str:
         log_entry: dict = {
@@ -16,8 +23,19 @@ class StructuredJsonFormatter(logging.Formatter):
             "logger": record.name,
             "message": record.getMessage(),
         }
-        if hasattr(record, "structured_data"):
-            log_entry.update(record.structured_data)
+
+        if record.exc_info:
+            log_entry["exception"] = self.formatException(record.exc_info)
+
+        structured = getattr(record, "structured_data", None)
+        if isinstance(structured, dict):
+            for key, value in structured.items():
+                if key in _RESERVED_LOG_FIELDS:
+                    # Don't let custom payloads silently overwrite core fields.
+                    log_entry[f"data_{key}"] = value
+                else:
+                    log_entry[key] = value
+
         return json.dumps(log_entry, ensure_ascii=False, default=str)
 
 
